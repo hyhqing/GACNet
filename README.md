@@ -126,7 +126,7 @@ train.py --root_path F:\images_dataset --list_dir E:\works\list --num_classes 45
 test.py --test_path D:\Desktop\test\ --save_path D:\Desktop\result\ --weights_path E:\works\model_2\weights --num_classes 45 --img_size 256 --data_channel 3 --X_type RGB --Y_type DSM --model_name MFIANet_b2
 ```
 
-![图12](https://raw.gitmirror.com/xxxxZhou/MFIANet/main/undefined202406271423927.png)
+![image](https://github.com/hyhqing/MFIANet/blob/0e293e823f9b110340b20feb82d87a4d0ab125cf/202407011842393.png)
 
 ### Evaluating
 
