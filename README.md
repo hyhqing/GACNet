@@ -21,7 +21,7 @@
 ## Introduction
 
 #### This is the official code of MFIANet: A Multilevel Feature Interaction and Aggregation-Based Network for Extraction of Citrus Tree Canopy Height under Complex Terrain. a Multilevel Feature Interaction and Aggregation Network (MFIANet) for estimating citrus tree heights from unmanned aerial vehicle photogrammetry-derived data (UAVPD). In the encoding stage of the model, we designed a Multisource Feature Interaction Module (MFIM) and a Multisource Feature Aggregation Module (MFAM). These modules recalibrate feature responses from diverse datasets through triple feature interactions involving position, channel, and spatial correlation, and alternately aggregate the recalibrated features. In the decoding stage, to significantly reduce computational costs, we designed a Multilevel Feature Aggregation Decoder (MLFA-Decoder) based on cross-attention to ensure context consistency and enable the efficient extraction of citrus tree canopy and height. We evaluated our method in four citrus tree growing areas with different topographic conditions.
-
+![image](https://github.com/hyhqing/MFIANet/blob/8e03f2f50c7927c1147708bc03e8b0463901628f/202407011828019.png)
 
 
 ## File Directory
@@ -68,7 +68,7 @@
 ### Install
 
 1. ```
-   git clone https://github.com/xxxxZhou/MFIANet $MFIANet_ROOT
+   git clone https://github.com/hyhqing/MFIANet $MFIANet_ROOT
    ```
 
 2. If you want to train and test our models on your datasets, you need to install dependencies: pip install -r requirements.txt
