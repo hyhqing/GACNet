@@ -147,16 +147,3 @@ test.py --test_path D:\Desktop\test\ --save_path D:\Desktop\result\ --weights_pa
 ##### segformer_b4: https://github.com/anibali/segformer/releases/download/v0.0.0/segformer_b4_backbone_imagenet-b757a54d.pth,
 
 ##### segformer_b5: https://github.com/anibali/segformer/releases/download/v0.0.0/segformer_b5_backbone_imagenet-d552b33d.pth
-
-## Citation
-
-#### If you find this work or code is helpful in your research, please cite:
-
-```
-@inproceedings{HeZZCW24,
-  title={MFIANet: A Multilevel Feature Interaction and Aggregation-Based Network for Extraction of Citrus Tree Canopy Height under Complex Terrain},
-  author={Haiqing He and Fuyang Zhou and Yongjun Zhang and Ting Chen and Yan Wei},
-  booktitle={IEEE Transactions on Geoscience and Remote Sensing},
-  year={2024}
-}
-```
