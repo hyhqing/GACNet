@@ -400,7 +400,7 @@ class EfficientNetV2(nn.Module):
         return features
 
 
-class MFIANet(nn.Module):
+class GACNet(nn.Module):
     def __init__(self, in_chans,aux, model_cnf, num_class, output_channel,
                  pretrained_root=None, head=False, head_type='mlphead', norm_layer=nn.LayerNorm, drop_connect_rate=0.2):
         super(MFIANet, self).__init__()
@@ -485,10 +485,10 @@ class MFIANet(nn.Module):
             outputs.append(x1)
         return outputs
 
-def MFIANet_s(num_classes, in_chans, aux, head=False, head_type='mlphead'):
+def GACNet_s(num_classes, in_chans, aux, head=False, head_type='mlphead'):
     model_config = config.get_st_config()
 
-    model = MFIANet(in_chans=in_chans,
+    model = GACNet(in_chans=in_chans,
                     aux=aux,
                     model_cnf=model_config,
                     output_channel=[48, 64, 128, 256],
@@ -497,9 +497,9 @@ def MFIANet_s(num_classes, in_chans, aux, head=False, head_type='mlphead'):
                     head_type=head_type)
     return model
 
-def MFIANet_m(num_classes, in_chans, aux, head=False, head_type='mlphead'):
+def GACNet_m(num_classes, in_chans, aux, head=False, head_type='mlphead'):
     model_config = config.get_mt_config()
-    model = MFIANet(in_chans=in_chans,
+    model = GACNet(in_chans=in_chans,
                     aux=aux,
                     model_cnf=model_config,
                     output_channel=[48, 80, 176, 512],
@@ -508,10 +508,10 @@ def MFIANet_m(num_classes, in_chans, aux, head=False, head_type='mlphead'):
                     head_type=head_type)
     return model
 
-def MFIANet_l(num_classes, in_chans, aux, head=False, head_type='mlphead'):
+def GACNet_l(num_classes, in_chans, aux, head=False, head_type='mlphead'):
     model_config = config.get_lt_config()
 
-    model = MFIANet(in_chans=in_chans,
+    model = GACNet(in_chans=in_chans,
                     aux=aux,
                     model_cnf=model_config,
                     output_channel=[64, 96, 224, 640],
@@ -521,7 +521,7 @@ def MFIANet_l(num_classes, in_chans, aux, head=False, head_type='mlphead'):
     return model
 
 if __name__ == '__main__':
-    model = MFIANet_M(num_classes=45, in_chans=3, aux=False, head=False, head_type='mlphead')
+    model = GACNet_M(num_classes=45, in_chans=3, aux=False, head=False, head_type='mlphead')
     RGB_inputs = torch.randn(size=(8, 3, 256, 256))
     X_inputs = torch.randn(size=(8, 1, 256, 256))
     outputs = model(RGB_inputs, X_inputs)
