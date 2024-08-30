@@ -59,9 +59,9 @@
 |   SegFormer_B2   | Channel Stack |   96.83   |   93.01   |   91.61   |   0.33   |   0.52   |
 |   SegFormer_B3   | Channel Stack |   96.90   |   93.33   |   91.90   |   0.31   |   0.50   |
 |   SegFormer_B4   | Channel Stack |   96.95   |   93.81   |   92.29   |   0.29   |   0.47   |
-| MFIANet (MiT-b2) |    RGB-DSM    |   97.94   |   96.03   |   94.86   |   0.27   |   0.42   |
-| MFIANet (MiT-b3) |    RGB-DSM    | **98.02** | **96.19** | **95.08** | **0.25** | **0.38** |
-| MFIANet (MiT-b4) |    RGB-DSM    |   97.87   |   95.91   |   94.69   |   0.26   |   0.42   |
+| GACNet (MiT-b2) |    RGB-DSM    |   97.94   |   96.03   |   94.86   |   0.27   |   0.42   |
+| GACNet (MiT-b3) |    RGB-DSM    | **98.02** | **96.19** | **95.08** | **0.25** | **0.38** |
+| GACNet (MiT-b4) |    RGB-DSM    |   97.87   |   95.91   |   94.69   |   0.26   |   0.42   |
 
 ## Necessary Environments
 
