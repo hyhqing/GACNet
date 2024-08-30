@@ -41,15 +41,15 @@ parser.add_argument('--X_type', type=str,default='RGB',
                     help='X data type, such as "RGB", "GGLI", "GLI", "NGRDI", and so on')
 parser.add_argument('--Y_type', type=str,default='CHM',
                     help='Y data type, such as "DSM"')
-parser.add_argument('--model_name', type=str, default='MFIANet_b2',
+parser.add_argument('--model_name', type=str, default='GACNet_b2',
                     help="model for training")
 parser.add_argument('--head', type=bool, default=False,
                     help='Does the network require a segmentation head')
 parser.add_argument('--head_type', type=str, default='seghead',
                     help='segmentation head name, such as "seghead", "fpnhead", "uperhead", "mlphead", and so on')
-parser.add_argument('--train_para_file', type=str, default='MFIANet_b2_train_para',
+parser.add_argument('--train_para_file', type=str, default='GACNet_b2_train_para',
                     help='Save the file of training parameters')
-parser.add_argument('--val_para_file', type=str, default='MFIANet_b2_val_para',
+parser.add_argument('--val_para_file', type=str, default='GACNet_b2_val_para',
                     help='Save the file of validation parameters')
 args = parser.parse_args()
 
