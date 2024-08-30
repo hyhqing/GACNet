@@ -21,7 +21,7 @@
 ## Introduction
 
 #### we introduce a novel geometric and attribute co-evolutionary network (GACNet), tailored for extracting citrus tree heights using unmanned aerial vehicle photogrammetry-derived data (UAVPD). Our approach integrates a multi-source feature interaction module with a multi-source feature aggregation module, fostering the co-evolution of deep feature responses across various datasets. Notably, this includes a sophisticated triple feature interaction mechanism that considers position, channel, and spatial correlation to enhance the aggregation of geometric features. Additionally, we employ a multi-level feature aggregation decoder leveraging cross-attention, ensuring attribute context consistency and facilitating efficient tree height extraction. Quantitative analysis across datasets reveals our method's superior performance, with a 2%-7% increase in mIoU for canopy segmentation and a robust correlation of 0.77 between estimated and reference tree heights, accompanied by an MAE of 0.25 m and an RMSE of 0.38 m.
-![image](https://github.com/hyhqing/GACNet/blob/8e03f2f50c7927c1147708bc03e8b0463901628f/202407011828019.png)
+![image](https://github.com/hyhqing/GACNet/blob/8e03f2f50c7927c1147708bc03e8b0463901628f/202408301625786.png)
 
 
 ## File Directory
