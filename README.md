@@ -40,7 +40,7 @@
 
 ## Performance
 
-#### Performance on tree canopy segmentation and tree height estimation between the MFIANet model and state-of-the-art Networks (using RGB-DSM data as input)
+#### Performance on tree canopy segmentation and tree height estimation between the GACNet model and state-of-the-art Networks (using RGB-DSM data as input)
 
 
 
