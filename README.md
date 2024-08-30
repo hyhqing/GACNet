@@ -118,7 +118,7 @@ train.py --root_path F:\images_dataset --list_dir E:\works\list --num_classes 45
 
 ### Testing
 
-### MFIANet_b2
+### GACNet_b2
 
 #### Configure the following parameters in test.py or enter the command line directly in the terminal.
 
