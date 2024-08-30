@@ -419,11 +419,11 @@ class MixTransformer(nn.Module):
         return features
 
 
-class MFIANet(nn.Module):
+class GACNet(nn.Module):
     def __init__(self, patch_size, in_chans, num_classes, embed_dims, num_heads, mlp_ratios,
                  qkv_bias, drop_rate, drop_path_rate, depths, sr_ratios,
                  aux, norm_layer=nn.LayerNorm, pretrained_root=None, head=False,head_type='mlphead'):
-        super(MFIANet, self).__init__()
+        super(GACNet, self).__init__()
         self.head = head
         self.aux = aux
         self.head_name = head_type
@@ -540,56 +540,56 @@ def load_dualpath_model(model, model_file):
             t_ioend - t_start, t_end - t_ioend))
 
 
-def MFIANet_b0(num_classes, in_chans, aux, head=False, head_type='mlphead'):
+def GACNet_b0(num_classes, in_chans, aux, head=False, head_type='mlphead'):
 
-    model = MFIANet(in_chans=in_chans, aux=aux, num_classes=num_classes, head = head,
+    model = GACNet(in_chans=in_chans, aux=aux, num_classes=num_classes, head = head,
                     head_type=head_type, patch_size=4, embed_dims=[32, 64, 160, 256],
                     num_heads=[1, 2, 5, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=True, depths=[2, 2, 2, 2],
                     sr_ratios=[8, 4, 2, 1], drop_rate=0.0, drop_path_rate=0.1)
     return model
 
-def MFIANet_b1(num_classes, in_chans, aux, head=False, head_type='mlphead'):
+def GACNet_b1(num_classes, in_chans, aux, head=False, head_type='mlphead'):
 
-    model = MFIANet(in_chans=in_chans, aux=aux, num_classes=num_classes, head = head,
+    model = GACNet(in_chans=in_chans, aux=aux, num_classes=num_classes, head = head,
                     head_type=head_type, patch_size=4, embed_dims=[64, 128, 320, 512],
                     num_heads=[1, 2, 5, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=True,
                     depths=[2, 2, 2, 2], sr_ratios=[8, 4, 2, 1], drop_rate=0.0, drop_path_rate=0.1)
     return model
 
-def MFIANet_b2(num_classes, in_chans, aux, head=False, head_type='mlphead'):
+def GACNet_b2(num_classes, in_chans, aux, head=False, head_type='mlphead'):
 
-    model = MFIANet(in_chans=in_chans, aux=aux, num_classes=num_classes, head = head,
+    model = GACNet(in_chans=in_chans, aux=aux, num_classes=num_classes, head = head,
                     head_type=head_type, patch_size=4, embed_dims=[64, 128, 320, 512],
                     num_heads=[1, 2, 5, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=True,
                     depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1], drop_rate=0.0, drop_path_rate=0.1)
     return model
 
-def MFIANet_b3(num_classes, in_chans, aux, head=False, head_type='mlphead'):
+def GACNet_b3(num_classes, in_chans, aux, head=False, head_type='mlphead'):
 
-    model = MFIANet(in_chans=in_chans, aux=aux, num_classes=num_classes, head = head,
+    model = GACNet(in_chans=in_chans, aux=aux, num_classes=num_classes, head = head,
                     head_type=head_type, patch_size=4, embed_dims=[64, 128, 320, 512],
                     num_heads=[1, 2, 5, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=True,
                     depths=[3, 4, 18, 3], sr_ratios=[8, 4, 2, 1], drop_rate=0.0, drop_path_rate=0.1)
     return model
 
-def MFIANet_b4(num_classes, in_chans, aux, head=False, head_type='mlphead'):
+def GACNet_b4(num_classes, in_chans, aux, head=False, head_type='mlphead'):
 
-    model = MFIANet(in_chans=in_chans, aux=aux, num_classes=num_classes, head = head,
+    model = GACNet(in_chans=in_chans, aux=aux, num_classes=num_classes, head = head,
                     head_type=head_type, patch_size=4, embed_dims=[64, 128, 320, 512],
                     num_heads=[1, 2, 5, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=True,
                     depths=[3, 8, 27, 3], sr_ratios=[8, 4, 2, 1], drop_rate=0.0, drop_path_rate=0.1)
     return model
 
-def MFIANet_b5(num_classes, in_chans, aux, head=False, head_type='mlphead'):
+def GACNet_b5(num_classes, in_chans, aux, head=False, head_type='mlphead'):
 
-    model = MFIANet(in_chans=in_chans, aux=aux,num_classes=num_classes, head = head, head_type=head_type,
+    model = GACNet(in_chans=in_chans, aux=aux,num_classes=num_classes, head = head, head_type=head_type,
                     patch_size=4, embed_dims=[64, 128, 320, 512],
                     num_heads=[1, 2, 5, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=True,
                     depths=[3, 6, 40, 3], sr_ratios=[8, 4, 2, 1], drop_rate=0.0, drop_path_rate=0.1)
     return model
 
 if __name__ == '__main__':
-    model = MFIANet_b4(num_classes=45, in_chans=3, aux=False, head=False, head_type='seghead')
+    model = GACNet_b4(num_classes=45, in_chans=3, aux=False, head=False, head_type='seghead')
     RGB_inputs = torch.randn(size=(8, 3, 256, 256))
     X_inputs = torch.randn(size=(8, 1, 256, 256))
     outputs = model(RGB_inputs, X_inputs)
