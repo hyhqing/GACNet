@@ -1,4 +1,4 @@
-# ⭐️⭐️MFIANet Research Code Help 
+# ⭐️⭐️GACNet Research Code Help 
 
 ## Catalog
 
@@ -20,8 +20,8 @@
 
 ## Introduction
 
-#### This is the official code of MFIANet: A Multilevel Feature Interaction and Aggregation-Based Network for Extraction of Citrus Tree Canopy Height under Complex Terrain. a Multilevel Feature Interaction and Aggregation Network (MFIANet) for estimating citrus tree heights from unmanned aerial vehicle photogrammetry-derived data (UAVPD). In the encoding stage of the model, we designed a Multisource Feature Interaction Module (MFIM) and a Multisource Feature Aggregation Module (MFAM). These modules recalibrate feature responses from diverse datasets through triple feature interactions involving position, channel, and spatial correlation, and alternately aggregate the recalibrated features. In the decoding stage, to significantly reduce computational costs, we designed a Multilevel Feature Aggregation Decoder (MLFA-Decoder) based on cross-attention to ensure context consistency and enable the efficient extraction of citrus tree canopy and height. We evaluated our method in four citrus tree growing areas with different topographic conditions.
-![image](https://github.com/hyhqing/MFIANet/blob/8e03f2f50c7927c1147708bc03e8b0463901628f/202407011828019.png)
+#### we introduce a novel geometric and attribute co-evolutionary network (GACNet), tailored for extracting citrus tree heights using unmanned aerial vehicle photogrammetry-derived data (UAVPD). Our approach integrates a multi-source feature interaction module with a multi-source feature aggregation module, fostering the co-evolution of deep feature responses across various datasets. Notably, this includes a sophisticated triple feature interaction mechanism that considers position, channel, and spatial correlation to enhance the aggregation of geometric features. Additionally, we employ a multi-level feature aggregation decoder leveraging cross-attention, ensuring attribute context consistency and facilitating efficient tree height extraction. Quantitative analysis across datasets reveals our method's superior performance, with a 2%-7% increase in mIoU for canopy segmentation and a robust correlation of 0.77 between estimated and reference tree heights, accompanied by an MAE of 0.25 m and an RMSE of 0.38 m.
+![image](https://github.com/hyhqing/GACNet/blob/8e03f2f50c7927c1147708bc03e8b0463901628f/202407011828019.png)
 
 
 ## File Directory
@@ -48,10 +48,10 @@
 | :--------------: | :-----------: | :-------: | :-------: | :-------: | :------: | :------: |
 |       FCN        | Channel Stack |   94.95   |   90.02   |   87.76   |   0.44   |   0.70   |
 |       UNet       | Channel Stack |   95.52   |   92.05   |   90.56   |   0.36   |   0.62   |
-|    HRCNet_W48    | Channel Stack |   96.25   |   93.74   |   92.61   |   0.34   |   0.56   |
-|    DeepLabV3+    | Channel Stack |   96.36   |   93.55   |   91.96   |   0.30   |   0.51   |
-|  EfficientNetV2  | Channel Stack |   95.67   |   92.44   |   90.50   |   0.29   |   0.48   |
-|    TransUNet     | Channel Stack |   96.62   |   93.64   |   91.91   |   0.30   |   0.50   |
+|    HRCNet_W48    | Channel Stack |   95.85   |   92.71   |   91.11   |   0.34   |   0.56   |
+|    DeepLabV3+    | Channel Stack |   95.96   |   93.05   |   91.46   |   0.30   |   0.51   |
+|  EfficientNetV2  | Channel Stack |   95.67   |   92.14   |   90.50   |   0.29   |   0.48   |
+|    TransUNet     | Channel Stack |   96.62   |   93.64   |   91.91   |   0.32   |   0.50   |
 |    CSwin-Tiny    | Channel Stack |   96.71   |   93.31   |   91.60   |   0.33   |   0.54   |
 |   CSwin-Small    | Channel Stack |   96.92   |   93.81   |   91.80   |   0.32   |   0.51   |
 |    CSwin-Base    | Channel Stack |   97.01   |   93.99   |   92.02   |   0.30   |   0.49   |
@@ -68,7 +68,7 @@
 ### Install
 
 1. ```
-   git clone https://github.com/hyhqing/MFIANet $MFIANet_ROOT
+   git clone https://github.com/hyhqing/GACNet $GACNet_ROOT
    ```
 
 2. If you want to train and test our models on your datasets, you need to install dependencies: pip install -r requirements.txt
@@ -80,7 +80,7 @@
 #### Your directory tree should be look like this:
 
 ```python
-MFIANet_ROOT/data
+GACNet_ROOT/data
 ├── train_val
 │   ├── images
 │   │   ├── DSM
@@ -113,7 +113,7 @@ MFIANet_ROOT/data
 #### Command Lines:
 
 ```
-train.py --root_path F:\images_dataset --list_dir E:\works\list --num_classes 45 --img_size 256 --batch_size 8 --max_epochs 50 --output_dir E:\works --init_lr 0.0001 --data_channel 3 --X_type RGB --Y_type DSM --model_name MFIANet_b2 --head False --train_para_file MFIANet_b2_train_para --val_para_file MFIANet_b2_val_para
+train.py --root_path F:\images_dataset --list_dir E:\works\list --num_classes 45 --img_size 256 --batch_size 8 --max_epochs 50 --output_dir E:\works --init_lr 0.0001 --data_channel 3 --X_type RGB --Y_type DSM --model_name GACNet_b2 --head False --train_para_file GACNet_b2_train_para --val_para_file GACNet_b2_val_para
 ```
 
 ### Testing
@@ -123,10 +123,10 @@ train.py --root_path F:\images_dataset --list_dir E:\works\list --num_classes 45
 #### Configure the following parameters in test.py or enter the command line directly in the terminal.
 
 ```
-test.py --test_path D:\Desktop\test\ --save_path D:\Desktop\result\ --weights_path E:\works\model_2\weights --num_classes 45 --img_size 256 --data_channel 3 --X_type RGB --Y_type DSM --model_name MFIANet_b2
+test.py --test_path D:\Desktop\test\ --save_path D:\Desktop\result\ --weights_path E:\works\model_2\weights --num_classes 45 --img_size 256 --data_channel 3 --X_type RGB --Y_type DSM --model_name GACNet_b2
 ```
 
-![image](https://github.com/hyhqing/MFIANet/blob/0e293e823f9b110340b20feb82d87a4d0ab125cf/202407011842393.png)
+![image](https://github.com/hyhqing/GACNet/blob/0e293e823f9b110340b20feb82d87a4d0ab125cf/202407011842393.png)
 
 ### Evaluating
 
