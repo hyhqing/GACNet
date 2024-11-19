@@ -144,9 +144,10 @@ def read_data(root_path, list_dir, X_type, Y_type, mode = 'train'):
 
     for i in range(len(sample_list)):
         slice_name = sample_list[i].strip('\n')
-        image_name = slice_name + '.png'
-        X_image_path = os.path.join(X_image_root, image_name)
-        Y_image_path = os.path.join(Y_image_root, image_name)
+        X_image_name = slice_name + '.png'
+        Y_image_name = slice_name + '.tif'
+        X_image_path = os.path.join(X_image_root, X_image_name)
+        Y_image_path = os.path.join(Y_image_root, Y_image_name)
 
         label_name = slice_name + '.png'
         label_path = os.path.join(gt_root, label_name)
@@ -171,7 +172,8 @@ def read_train_data(X_img_path, Y_img_path, mask_path):
     mask = np.expand_dims(mask, axis=2)
 
     X_img = np.array(X_img, np.float32) / 255.0
-    Y_img = np.array(Y_img, np.float32) / 255.0
+    # Y_img = np.array(Y_img, np.float32) / 255.0
+    Y_img = cv2.normalize(Y_img, None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
     mask = np.array(mask, np.float32)
 
     X_img = np.array(X_img, np.float32).transpose(2, 0, 1)
@@ -195,7 +197,8 @@ def read_val_data(X_img_path, Y_img_path, mask_path):
     mask = np.expand_dims(mask, axis=2)
 
     X_img = np.array(X_img, np.float32) / 255.0
-    Y_img = np.array(Y_img, np.float32) / 255.0
+    # Y_img = np.array(Y_img, np.float32) / 255.0
+    Y_img = cv2.normalize(Y_img, None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
 
     mask = np.array(mask, np.float32)
 
